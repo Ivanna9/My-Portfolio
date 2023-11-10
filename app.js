@@ -25,4 +25,15 @@ firstName = 'Baloc'
 
 const resultElement = document.getElementById ('result')
 console.log (resultElement.textContent)
-resultElement.textContent = (42-2)/ num 
+// resultElement.textContent = (42-2)/ num 
+
+const input1 = document.getElementById ('input1')
+const input2 = document.getElementById ('input2')
+console.log(input1.value)
+
+
+const sum= Number(input1.value)+ Number(input2.value)
+resultElement.textContent =sum
+
+//console.log(typeof sum)
+
