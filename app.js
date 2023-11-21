@@ -49,19 +49,26 @@ minustBtn.onclick = function () {
              resultElement.textContent = result
     }
 
-    function computerNumbersWithAction (inp1,inp2, actionSymbol){
+    function computerNumbersWithAction (inp1,inp2,inp3,inp4, actionSymbol){
         const num1 = Number (inp1.value)
         const num2 = Number (inp2.value)
+        const num3 = Number (inp3.value)
+        const num4 = Number (inp4.value)
 
-        if ( actionSymbol= '+'){
+        if ( actionSymbol == '+'){
             return num1 + num2
-        }
-
-        if ( actionSymbol= '-'){
+        } else if ( actionSymbol == '-'){
             return num1 - num2
-        }
+        } else if ( actionSymbol == '*'){
+        return num1 * num2
+        }else if ( actionSymbol == '/'){
+        return num1 / num2
+    } 
     }
-
+submitBtn.onclick = function() {
+    const result = computerNumbersWithAction (input1,input2,input3,input4,action)
+    printResult(result)
+}
     
 // submitBtn.onclick = function () {
 //     if (action == '+') {
@@ -72,5 +79,4 @@ minustBtn.onclick = function () {
 //         const sum= Number(input1.value) - Number(input2.value)
 //         printResult (sum)
 //          }
-
 // }
