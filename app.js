@@ -30,6 +30,13 @@ const submitBtn= document.getElementById ('submit')
 const plusBtn= document.getElementById ('plus')
 const minustBtn= document.getElementById ('minus')
 
+// const input3 = document.getElementById ('input3')
+// const input4 = document.getElementById ('input4')
+
+const plBtn= document.getElementById ('pl')
+const mitBtn= document.getElementById ('mi')
+
+
 plusBtn.onclick = function () {
     action = '+'
     
@@ -39,6 +46,15 @@ minustBtn.onclick = function () {
     action = '-'
       
     }
+plBtn.onclick = function () {
+    action = '*'
+        
+    }
+    
+ mitBtn.onclick = function () {
+    action = '/'
+          
+     }
 
     function printResult (result) {
             if (result<0) {
@@ -49,11 +65,11 @@ minustBtn.onclick = function () {
              resultElement.textContent = result
     }
 
-    function computerNumbersWithAction (inp1,inp2,inp3,inp4, actionSymbol){
+    function computerNumbersWithAction (inp1,inp2, actionSymbol){
         const num1 = Number (inp1.value)
         const num2 = Number (inp2.value)
-        const num3 = Number (inp3.value)
-        const num4 = Number (inp4.value)
+        // const num3 = Number (inp3.value)
+        // const num4 = Number (inp4.value)
 
         if ( actionSymbol == '+'){
             return num1 + num2
@@ -61,12 +77,12 @@ minustBtn.onclick = function () {
             return num1 - num2
         } else if ( actionSymbol == '*'){
         return num1 * num2
-        }else if ( actionSymbol == '/'){
+        } else if ( actionSymbol == '/'){
         return num1 / num2
     } 
     }
 submitBtn.onclick = function() {
-    const result = computerNumbersWithAction (input1,input2,input3,input4,action)
+    const result = computerNumbersWithAction (input1,input2,action)
     printResult(result)
 }
     
