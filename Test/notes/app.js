@@ -15,6 +15,7 @@
 
 /*/
 
+/**
 const inputElement = document.getElementById("title");
 const createBtn = document.getElementById("create");
 const listElement = document.getElementById("list");
@@ -58,10 +59,11 @@ function getNoteTemplate(title) {
         </li>
         `;
 }
+*/
 
 /**
 *Object
-*/
+
 const person = {
   firstName: `Ivanna`,
   lastName: `_`,
@@ -75,3 +77,53 @@ console.log()
 console.log(person['languages'])
 const key = 'year'
 console.log(person[key])
+*/
+
+const notes = [
+  {
+    title: 'Block',
+    completed: false,
+  },
+  {
+    title: 'Theory',
+    completed: true,
+  },
+]
+
+function render() {
+  for (let note of notes) {
+    listElement.insertAdjacentHTML('beforeend', getNoteTemplate(note))
+  }
+}
+render();
+
+
+createBtn.onclick = function () {
+  if (inputElement.value.length === 0) {
+    return
+  }
+  const newNote ={
+    title: inputElement.value,
+    completed: false,
+  }
+
+  listElement.insertAdjacentHTML('beforeend',getNoteTemplate(newNote))
+  inputElement.value = ''
+};
+
+
+function getNoteTemplate(note) {
+ console.log (note.completed)
+  return `
+        <li
+            class= "list-group-item d-flex justify-content-between align-items-center"
+            >
+            <span class ="${note.completed ? 'text-decoration-line-through' : ''}" >${note.title} 
+            </span>
+            <span>
+            <span class="btn btn-small btn-${note.completed ? 'warming' : 'success'} ">&check;</span>
+            <span class="btn btn-small btn-danger">&times;</span>
+            </span>
+        </li>
+        `;
+}
