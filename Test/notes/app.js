@@ -58,3 +58,20 @@ function getNoteTemplate(title) {
         </li>
         `;
 }
+
+/**
+*Object
+*/
+const person = {
+  firstName: `Ivanna`,
+  lastName: `_`,
+  year: 3722,
+  languages: [`en`,`ru`,`de`,`ua`],
+  getFullName: function (){
+    console.log(person.firstName + ' '+ person.lastName)
+  },
+}
+console.log()
+console.log(person['languages'])
+const key = 'year'
+console.log(person[key])
