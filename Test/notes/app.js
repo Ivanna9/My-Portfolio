@@ -96,6 +96,9 @@ const notes = [
 
 function render() {
   listElement.innerHTML =''
+  if (notes.length === 0){
+    listElement.innerHTML = '<p> No elements <p>'
+  }
   for (let i = 0; i< notes.length; i++) {
     listElement.insertAdjacentHTML ('beforeend', getNoteTemplate (notes[i],i))
  
@@ -119,8 +122,20 @@ createBtn.onclick = function () {
 };
 
 listElement.onclick= function (event){
-  console.log( event.target)
+  if( event.target.dataset.index){
+    const index =parseInt( event.target.dataset.index)
+    const type = event.target.dataset.type
+
+    if (type === 'toggle') {
+      notes[index].completed = !notes[index].completed
+    }
+    else if (type === 'remove'){
+     notes.splice (index,1)
+    }
+    render()
+  }
 }
+
 
 function getNoteTemplate(note, index) {
  //console.log (note.completed)
