@@ -78,6 +78,9 @@ console.log(person['languages'])
 const key = 'year'
 console.log(person[key])
 */
+const inputElement = document.getElementById("title");
+const createBtn = document.getElementById("create");
+const listElement = document.getElementById("list");
 
 const notes = [
   {
@@ -90,13 +93,16 @@ const notes = [
   },
 ]
 
+
 function render() {
-  for (let note of notes) {
-    listElement.insertAdjacentHTML('beforeend', getNoteTemplate(note))
+  listElement.innerHTML =''
+  for (let i = 0; i< notes.length; i++) {
+    listElement.insertAdjacentHTML ('beforeend', getNoteTemplate (notes[i],i))
+ 
   }
 }
-render();
-
+render()
+//2:34
 
 createBtn.onclick = function () {
   if (inputElement.value.length === 0) {
@@ -107,23 +113,30 @@ createBtn.onclick = function () {
     completed: false,
   }
 
-  listElement.insertAdjacentHTML('beforeend',getNoteTemplate(newNote))
+  notes.push(newNote)
+  render()
   inputElement.value = ''
 };
 
+listElement.onclick= function (event){
+  console.log( event.target)
+}
 
-function getNoteTemplate(note) {
- console.log (note.completed)
+function getNoteTemplate(note, index) {
+ //console.log (note.completed)
   return `
         <li
             class= "list-group-item d-flex justify-content-between align-items-center"
             >
-            <span class ="${note.completed ? 'text-decoration-line-through' : ''}" >${note.title} 
+            <span class ="${note.completed ? 'text-decoration-line-through' : 
+            ''}" >${note.title} 
             </span>
             <span>
-            <span class="btn btn-small btn-${note.completed ? 'warming' : 'success'} ">&check;</span>
-            <span class="btn btn-small btn-danger">&times;</span>
+            <span class="btn btn-small btn-${note.completed ? 'warming' : 
+            'success'} " data-index ="${index} " data-type ="toggle" >&check;</span>
+            <span class="btn btn-small btn-danger" data-type ="remove" 
+            data-index ="${index}">&times;</span>
             </span>
         </li>
-        `;
+       `
 }
