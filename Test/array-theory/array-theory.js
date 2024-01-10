@@ -51,9 +51,12 @@ const names = ['Tom','Lime','Sam','Lukas']
 
 const people = [
     { name: 'Salla' , budget: 5000},
-    { name: 'Tommy' , budget: 2000},
+    { name: 'Tommy' , budget: 1000},
     { name: 'Beral' , budget: 560},
     { name: 'Mysma' , budget: 1200},
+    { name: 'Nula' , budget: 9200},
+    { name: 'Enisha' , budget: 2200},
+    { name: 'Kutor' , budget: 200},
 ]
 //1 variant
 // let findedPerson
@@ -82,6 +85,48 @@ const people = [
 // })
 //  console.log(findedPerson)
 
- //4 variant
- const finded = people.find((p) => p.budget === 1200)
- console.log(finded)
+//  //4 variant
+//  const finded = people.find((p) => p.budget === 1200)
+//  console.log(finded)
+
+// const filtered = people.filter(function(p){
+//     return p.budget >= 2000
+// })
+// console.log(filtered)
+
+
+//1 variant
+// let sumBudget =0
+// const filtered = people.filter(function(p){
+//     return p.budget >= 2000
+// })
+// console.log(filtered)
+// filtered.forEach(function(p){
+//     sumBudget = sumBudget+ p.budget
+// })
+// console.log(sumBudget)
+
+
+////2 variant
+// const sumBudget = people
+//     .filter((p) => p.budget >3000 )
+//     .map((p) => p.budget)
+//     .reduce((acc,p) => acc + p, 0)
+
+//  console.log(sumBudget)
+
+ ////2.1 variant
+//  const byBudget = (p) => p.budget > 5000
+//  const pickBudget = (p) => p.budget 
+//  const sumBudget = people
+//     .filter(byBudget)
+//     .map(pickBudget)
+//     .reduce((acc,p) => acc + p, 0)
+    
+//  console.log(sumBudget)
+
+
+const string = 'Hallo meine liebe'
+
+const reversed = string.split('').toReversed().join('')
+console.log(reversed)
