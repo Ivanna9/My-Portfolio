@@ -34,34 +34,44 @@
 //     console.log ('Hallo -' , name)
 // }
 
-const arrow = (name,age) => {
-    console.log ('Hallo meine liebe -' , name, age)
-}
+// const arrow = (name,age) => {
+//     console.log ('Hallo meine liebe -' , name, age)
+// }
 
-const arrow2 = (name) =>  console.log ('Hallo meine liebe -' , name)
+// const arrow2 = (name) =>  console.log ('Hallo meine liebe -' , name)
 
-function pow (num,exp) {
-    return  Math.pow (num,exp)
-}
+// function pow (num,exp) {
+//     return  Math.pow (num,exp)
+// }
 
-//const pow2 = (num, exp) => Math.pow (num,exp)
-//console.log (pow(2,3))
+// //const pow2 = (num, exp) => Math.pow (num,exp)
+// //console.log (pow(2,3))
 
-// Default parameters
-const sum = (a =29,b= a/2) => a+b
-//console.log(sum(20,4))
-console.log(sum())
+// // Default parameters
+// const sum = (a =29,b= a/2) => a+b
+// //console.log(sum(20,4))
+// console.log(sum())
 
-function sumAll(...numbers)
-{
-    // let res =0
-    // for (let num of numbers){
-    //     res += num
-    // }
-    // return res
-    return numbers.reduce((acc,cur) => (acc+= cur),0)
-}
+// function sumAll(...numbers)
+// {
+//     // let res =0
+//     // for (let num of numbers){
+//     //     res += num
+//     // }
+//     // return res
+//     return numbers.reduce((acc,cur) => (acc+= cur),0)
+// }
 
-console.log(sumAll(1,2,1))
+// console.log(sumAll(1,2,1))
 
 //Closures
+
+// function createPerson (name) {
+//     return function (lastname){
+//         console.log(name +' '+lastname)
+//     }
+// }
+
+// const addLastName = createPerson ('ergeg')
+// addLastName('ddd')
+// addLastName('fff')
