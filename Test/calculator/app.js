@@ -70,7 +70,7 @@ plBtn.onclick = function () {
         const num2 = Number (inp2.value)
         // const num3 = Number (inp3.value)
         // const num4 = Number (inp4.value)
-
+// debugger
         if ( actionSymbol == '+'){
             return num1 + num2
         } else if ( actionSymbol == '-'){
