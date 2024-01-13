@@ -10,9 +10,13 @@
     integrity ="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
     crossorigin="anonymous"
     >
+   
     <title>RESULT</title>
 </head>
+
 <body class ="bg-dark text-light">
+    
+
     <div class=" container w-50 pt-5">
         <h1>List of people</h1>
         <input 
@@ -20,9 +24,20 @@
             class=" form - control mb-2"
             placeholder=" First name"
             id =" filter"        
-            >
+            />
             <ul class="list-group list-group-flush" id="list"></ul>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const filter = document.getElementById('filter');
+    
+          if (filter) {
+            filter.addEventListener('input', function (event) {
+              // ваш код обробки події
+            });
+          }
+        });
+      </script>
     <script src= "result.js" defer></script>
 </body>
 </html>
