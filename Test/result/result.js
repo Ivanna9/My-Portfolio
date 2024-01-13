@@ -10,11 +10,12 @@
 
 const list = document. querySelector('#list')
 const filter = document. querySelector('#filter')
-if (filter) {
-    filter.addEventListener('click', swapper, false);
-  }
+// if (filter) {
+//     filter.addEventListener('click', swapper, false);
+//   }
 
 let USERS = []
+
 
 filter.addEventListener('input',(event) => {
     const value = event.target.value.toLowerCase()
@@ -42,7 +43,7 @@ async function start() {
 }
 
 function render( users = []){
-    if (user.length === 0){
+    if (users.length === 0){
         list.innerHTML = 'No matched users!!!'
     } else {
         const html= users.map(toHTML).join('')
