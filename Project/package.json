@@ -1,0 +1,12 @@
+{
+  "name": "super-broccoli",
+  "version": "1.0.0",
+  "description": "There will be practice here. That is, graduate work.\r It is expected that there will be:\r website (frontend and backend) and maybe the beginnings of a database.\r There may be some other interesting information, but all this will be updated and added in the future.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
