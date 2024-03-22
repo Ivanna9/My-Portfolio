@@ -1,4 +1,4 @@
-create TABLE user (
+create TABLE users(
     user_id SERIAL PRIMARY KEY,
      username VARCHAR(255),
      password CHAR(64),
@@ -10,7 +10,7 @@ create TABLE user (
      phone_number VARCHAR(50)
 );
 
-create TABLE part (
+create TABLE part(
      part_id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
      part_name VARCHAR(255),
      part_cod VARCHAR(150),
@@ -21,7 +21,7 @@ create TABLE part (
 
 create TABLE defect (
      defect_id SERIAL PRIMARY KEY,
-     part_id INT(255),
+     part_id INT,
      FOREIGN KEY (part_id) REFERENCES part (part_id),
      description VARCHAR(255),
      priority VARCHAR(255),
@@ -33,8 +33,8 @@ create TABLE defect (
 
 create TABLE breakdown (
      breakdown_id SERIAL PRIMARY KEY,
-     user_id INT(255),
-     FOREIGN KEY (user_id) REFERENCES user (user_id),
+     user_id INT,
+     FOREIGN KEY (user_id) REFERENCES users (user_id),
      description VARCHAR(255),
      location VARCHAR(255),
      date_reported TIMESTAMP,
