@@ -7,7 +7,7 @@ create TABLE user (
      date_registered TIMESTAMP,
      active VARCHAR(150),
      email VARCHAR(150),
-     phone_number VARCHAR(20)
+     phone_number VARCHAR(50)
 );
 
 create TABLE part (
@@ -21,7 +21,8 @@ create TABLE part (
 
 create TABLE defect (
      defect_id SERIAL PRIMARY KEY,
-     part_id VARCHAR(255),
+     part_id INT(255),
+     FOREIGN KEY (part_id) REFERENCES part (part_id),
      description VARCHAR(255),
      priority VARCHAR(255),
      date_detected TIMESTAMP,
@@ -32,7 +33,8 @@ create TABLE defect (
 
 create TABLE breakdown (
      breakdown_id SERIAL PRIMARY KEY,
-     user_id VARCHAR(255),
+     user_id INT(255),
+     FOREIGN KEY (user_id) REFERENCES user (user_id),
      description VARCHAR(255),
      location VARCHAR(255),
      date_reported TIMESTAMP,
