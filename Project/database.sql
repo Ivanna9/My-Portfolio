@@ -1,8 +1,8 @@
-create TABLE users(
-    user_id SERIAL PRIMARY KEY,
-     username VARCHAR(255),
+create TABLE person(
+    person_id SERIAL PRIMARY KEY,
+     person_name VARCHAR(255),
      password CHAR(64),
-     user_role VARCHAR(255),
+     person_role VARCHAR(255),
      department VARCHAR(255),
      date_registered TIMESTAMP,
      active VARCHAR(150),
@@ -33,8 +33,8 @@ create TABLE defect (
 
 create TABLE breakdown (
      breakdown_id SERIAL PRIMARY KEY,
-     user_id INT,
-     FOREIGN KEY (user_id) REFERENCES users (user_id),
+     person_id INT,
+     FOREIGN KEY (person_id) REFERENCES person (person_id),
      description VARCHAR(255),
      location VARCHAR(255),
      date_reported TIMESTAMP,
