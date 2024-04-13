@@ -1,6 +1,6 @@
 const express = require ('express')
 
-const personRouter = require ('./routers/person.routes')
+const personRouter = require ('./routers/person.routers')
 
 const PORT = process.env.PORT || 8080
 
