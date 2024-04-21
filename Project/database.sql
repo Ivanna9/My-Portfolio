@@ -34,8 +34,6 @@ CREATE TABLE history_br (
     FOREIGN KEY (technical_id) REFERENCES technical(technical_id)
 );
 
-
-
 CREATE TABLE location (
     location_id SERIAL PRIMARY KEY,
     floor VARCHAR(255)
