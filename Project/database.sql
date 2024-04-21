@@ -7,38 +7,36 @@ create TABLE person(
      date_registered TIMESTAMP,
      active VARCHAR(150),
      email VARCHAR(150),
-     phone_number VARCHAR(50)
+     phone_number VARCHAR(50),
+     location_id INT,
+     FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
 
-create TABLE part(
-     part_id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-     part_name VARCHAR(255),
-     part_cod VARCHAR(150),
-     inventory_code VARCHAR(255),
-     part_class VARCHAR(255),
-     subclass VARCHAR(150)
+CREATE TABLE technical (
+    technical_id SERIAL PRIMARY KEY,
+    location_id INT,
+    inventory_code VARCHAR(50),
+    name VARCHAR(100),
+    class VARCHAR(50),
+    subclass VARCHAR(50),
+    FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
 
-create TABLE defect (
-     defect_id SERIAL PRIMARY KEY,
-     part_id INT,
-     FOREIGN KEY (part_id) REFERENCES part (part_id),
-     description VARCHAR(255),
-     priority VARCHAR(255),
-     date_detected TIMESTAMP,
-     date_fixed TIMESTAMP,
-     status VARCHAR(100),
-     notes VARCHAR(255)
+
+CREATE TABLE history_br (
+    history_br_id SERIAL PRIMARY KEY,
+    person_id INT,
+    technical_id INT,
+    description TEXT,
+    date DATE,
+    status VARCHAR(50),
+    FOREIGN KEY (person_id) REFERENCES person(person_id),
+    FOREIGN KEY (technical_id) REFERENCES technical(technical_id)
 );
 
-create TABLE breakdown (
-     breakdown_id SERIAL PRIMARY KEY,
-     person_id INT,
-     FOREIGN KEY (person_id) REFERENCES person (person_id),
-     description VARCHAR(255),
-     location VARCHAR(255),
-     date_reported TIMESTAMP,
-     status VARCHAR(255),
-     equipment VARCHAR(255),
-     technical_assigned VARCHAR(255)
+
+
+CREATE TABLE location (
+    location_id SERIAL PRIMARY KEY,
+    floor VARCHAR(255)
 );
