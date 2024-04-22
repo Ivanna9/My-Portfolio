@@ -13,7 +13,7 @@ class LocationController{
         const location = await query('SELECT * FROM location where location_id= $1', [location_id])
         res.json(location.rows)
     }
-    //для свого переробити та проtестить с 16 мин примерно
+    
 }
 
 module.exports = new LocationController()
