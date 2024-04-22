@@ -12,12 +12,15 @@ create TABLE person(
      FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE technical (
-    technical_id SERIAL PRIMARY KEY,
-    location_id INT,
+    technical_id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    location_id int,
+    code VARCHAR(50),
     inventory_code VARCHAR(50),
     name VARCHAR(100),
-    class VARCHAR(50),
+    technical_class VARCHAR(50),
     subclass VARCHAR(50),
     FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
@@ -26,9 +29,9 @@ CREATE TABLE technical (
 CREATE TABLE history_br (
     history_br_id SERIAL PRIMARY KEY,
     person_id INT,
-    technical_id INT,
+    technical_id UUID,
     description TEXT,
-    date DATE,
+    date TIMESTAMP default CURRENT_TIMESTAMP,
     status VARCHAR(50),
     FOREIGN KEY (person_id) REFERENCES person(person_id),
     FOREIGN KEY (technical_id) REFERENCES technical(technical_id)
@@ -36,5 +39,6 @@ CREATE TABLE history_br (
 
 CREATE TABLE location (
     location_id SERIAL PRIMARY KEY,
-    floor VARCHAR(255)
+    floor INT,
+    room VARCHAR(10)
 );
