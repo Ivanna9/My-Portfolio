@@ -3,8 +3,8 @@ const query = require('../db')
 class LocationController{
 
     async createLocation (req,res){
-        const{ floor }= req.body
-        const newLocation = await query('INSERT INTO location (floor) values ($1) RETURNING *', [floor])
+        const{ floor, room }= req.body
+        const newLocation = await query('INSERT INTO location (floor, room) values ($1,$2) RETURNING *', [floor,room])
         res.json(newLocation.rows[0])
     }
 

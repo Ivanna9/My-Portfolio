@@ -2,6 +2,7 @@ const query = require('../db')
   
 class TechnicalController {
 
+  //POST + body
   async createTechnical (req,res) {
       const {location_id,code ,inventory_code,name,technical_class,subclass} = req.body
       const newTechnical = await query (
@@ -11,17 +12,19 @@ class TechnicalController {
       res.json(newTechnical.rows[0]) 
   }
 
+  //
   async getTechnical(req,res) {
     const technical = await query('SELECT * FROM technical ')
     res.json(technical.rows);
   }
 
+  //тут замісто technical_id (бо має UUID) буде code метод , GET - body + code
   async getOneTechnical (req,res) {
-    const technical_id = req.params.technical_id
-    const technical = await query('SELECT * FROM technical where technical_id = $1' , [technical_id])
-    res.json(technical.rows[0])
+    let code = req.params.code
+    code = await query('SELECT * FROM technical where code = $1' , [code])
+    res.json(code.rows[0])
   }
-
+// PUT + body + id in postman
   async updateTechnical(req, res) {
     const {location_id,code,inventory_code,name,technical_class,subclass, technical_id} = req.body;
     const technical = await query(
@@ -31,6 +34,7 @@ class TechnicalController {
     res.json(technical.rows[0]);
 }
 
+//DELETE -body + technical_id
   async deleteTechnical (req,res) {
     const technical_id = req.params.technical_id
     const technical = await query('DELETE FROM technical where technical_id = $1' , [technical_id])

@@ -5,7 +5,7 @@ console.log(technicalController)
 
  router.post('/technical', technicalController.createTechnical);
  router.get('/technical', technicalController.getTechnical);
- router.get('/technical/:technical_id', technicalController.getOneTechnical);
+ router.get('/technical/:code', technicalController.getOneTechnical);
  router.put('/technical', technicalController.updateTechnical);
  router.delete('/technical/:technical_id', technicalController.deleteTechnical);
 
