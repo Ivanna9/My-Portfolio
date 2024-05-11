@@ -1,8 +1,11 @@
 import React from 'react'
-
+import './Dashboard.css'
 const Dashboard = ()=>{
     return(
-        <div>Dashboard</div>
+        <div>
+            This is Dashboard Page
+            <a href="/">Log Out</a>
+        </div>
     )
 }
 
