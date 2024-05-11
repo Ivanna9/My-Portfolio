@@ -1,7 +1,7 @@
 import './App.css'
-import Dashboard from './Dashboard/Dashboard'
-import Login from './Login/Login'
-import Register from './Register/Register'
+import Dashboard from './Components/Dashboard/Dashboard'
+import Login from './Components/Login/Login'
+import Register from './Components/Register/Register'
 
 //Import React router dom
 import{
@@ -12,15 +12,16 @@ import{
 const router = createBrowserRouter([
   {
     path: '/',
-    element:<div>Login</div>
+    element: <Login />
   },
   {
     path: '/register',
-    element:<div>Register</div>
+    element:<Register />
+    
   },
    {
     path: '/dashboard',
-    element:<div>Dashboard</div>
+    element:<Dashboard />
   }
 ])
 
