@@ -3,13 +3,15 @@ import './Login.css'
 import {Link,NavLink} from 'react-router-dom'
 
 import video from '../../LoginAssets/video.mp4'
-import logo from '../../LoginAssets/logo.jpg'
+import logo from '../../LoginAssets/logo.png'
 
+
+import {FaUserShield}from 'react-icons/fa'
 const Login = ()=>{
     return(
         <div className ='loginPage flex'>
         <div className ="container flex">
-            <div className='videoDiv'>
+            {/* <div className='videoDiv'>
                 <video src={video} autoPlay muted loop></video>
                 <div className='textDiv'>
                     <h2 className='title'> Create....</h2>
@@ -22,7 +24,7 @@ const Login = ()=>{
                     <button className='btn'>Sign Up</button>
                 </Link>
                 </div>
-            </div>
+            </div> */}
 
             <div className='formDiv flex'>
                 <div className='headerDiv'>
@@ -35,13 +37,12 @@ const Login = ()=>{
                     <div className='inputDiv'>
                         <label htmlFor="username">Username</label>
                         <div className='input flex'>
-
+                            <FaUserShield className= 'icon'/>
+                            <input type="text" id='username' placeholder ='Enter Username' />
                         </div>
-
                     </div>
                 </form>
             </div>
-
         </div>
         </div>
         )
