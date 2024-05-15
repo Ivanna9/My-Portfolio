@@ -1,12 +1,19 @@
 import React from 'react' // eslint-disable-line no-unused-vars
 import './Login.css'
+import '../../App.css'
+
 import {Link,NavLink} from 'react-router-dom'
 
-import video from '../../LoginAssets/video.mp4'
+// import video from '../../LoginAssets/video.mp4'
 import logo from '../../LoginAssets/logo.png'
 
 
 import {FaUserShield}from 'react-icons/fa'
+import {BsFillShieldLockFill}from 'react-icons/bs'
+import {AiOutlineSwapRight}from 'react-icons/ai'
+
+
+
 const Login = ()=>{
     return(
         <div className ='loginPage flex'>
@@ -34,6 +41,7 @@ const Login = ()=>{
 
                 <form action="" className='form grid'>
                     <span>Login Status will go here </span>
+
                     <div className='inputDiv'>
                         <label htmlFor="username">Username</label>
                         <div className='input flex'>
@@ -41,6 +49,22 @@ const Login = ()=>{
                             <input type="text" id='username' placeholder ='Enter Username' />
                         </div>
                     </div>
+                    <div className='inputDiv'>
+                        <label htmlFor="password">Password</label>
+                        <div className='input flex'>
+                            <BsFillShieldLockFill className= 'icon'/>
+                            <input type="password" id='password' placeholder ='Enter Password' />
+                        </div>
+                    </div>
+
+                    <button type='submit' className='btn flex'>
+                        <span>Login</span>
+                        <AiOutlineSwapRight className='icon'/>
+                    </button>
+
+                    <span className='forgotPassword'>
+                        Forgot your password <a href="Click Here"></a>
+                    </span>
                 </form>
             </div>
         </div>
