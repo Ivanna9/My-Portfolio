@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список покупок</title>
+    <script src="test.css"></script>
+  </head>
+  <body>
+    <h1>📝 Мій список покупок</h1>
+
+    <div>
+      <input type="text" id="productName" placeholder="Назва товару" />
+      <input type="number" id="productPrice" placeholder="Ціна" />
+      <button onclick="addProductFromInput()">Додати</button>
+    </div>
+
+    <h2>Товари:</h2>
+    <div id="productList"></div>
+
+    <h3>Загальна вартість: <span id="totalPrice">0</span> грн</h3>
+
+    <script src="app.js"></script>
+  </body>
+</html>

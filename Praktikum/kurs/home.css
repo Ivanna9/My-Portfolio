@@ -1,0 +1,45 @@
+.btn-small {
+  padding: 10px 16px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  position: relative;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.btn-success {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+    -2px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.btn-success:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4),
+    -3px -3px 8px rgba(255, 255, 255, 0.15);
+}
+
+.btn-success:active {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3),
+    -1px -1px 3px rgba(255, 255, 255, 0.1);
+}
+
+.btn-danger {
+  background: linear-gradient(145deg, #e74c3c, #c0392b);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+    -2px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.btn-danger:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4),
+    -3px -3px 8px rgba(255, 255, 255, 0.15);
+}
+
+.btn-danger:active {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3),
+    -1px -1px 3px rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  line-height: 135%;
+  font-weight: 400;
+  text-align: left;
+  background: #fefbf1;
+  width: 100%;
+  height: 100%;
+  color: #703412;
+}
+
+/* Для екранів ширше 768px  */
+@media (min-width: 768px) {
+  body {
+    font-size: 1em;
+  }
+}
+/* Для екранів менше 768px  */
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Для дуже маленьких екранів */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  transition: all.6s ease;
+  -moz-transition: all.6s ease;
+  -ms-transition: all.6s ease;
+}
+
+a:hover {
+  color: #8bf4e3;
+  text-decoration: none;
+  transition: all.6s ease;
+  -moz-transition: all.6s ease;
+  -ms-transition: all.6s ease;
+}
+
+a:active {
+  color: #084935;
+}
+
+.wrapper {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapperHeader {
+  display: flex;
+  justify-content: center;
+  column-gap: 40px;
+  height: 61px;
+  align-items: center;
+}
+
+.textBusiness {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 44px;
+  letter-spacing: 1.600000023841858px;
+  text-align: left;
+  margin-bottom: 21px;
+}
+
+.textBrand {
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 88px;
+  text-align: left;
+  max-width: 850px;
+}
+.wrapperText {
+  padding: 120px 0;
+}
+
+.textThem {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 41.6px;
+  text-align: left;
+  max-width: 571px;
+  margin-bottom: 200px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 65px 30px;
+}
+
+.card {
+  text-align: left;
+  max-width: 312px;
+}
+.card img {
+  width: 312px;
+  object-fit: cover;
+}
+
+.card h3 {
+  max-width: 250px;
+  margin-bottom: 11px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.card p {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  letter-spacing: 1.6px;
+}
+
+.imgContainer {
+  overflow: hidden;
+  border-radius: 15px;
+  width: 312px;
+  margin-bottom: 34px;
+}
+
+footer {
+  margin-top: 62px;
+  background: #084935;
+  color: #fefbf1;
+}
+
+.textFooter {
+  text-align: left;
+  padding: 120px 0 24px 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 1.600000023841858px;
+  text-align: left;
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 38.4px;
+  text-align: left;
+  margin-bottom: 110px;
+}
+
+.partsFooter {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+}
+
+.parts {
+  text-align: left;
+  max-width: 312px;
+  margin-right: 160px;
+  margin-bottom: 80px;
+}
+
+.line {
+  background: #ffffff29;
+}
+
+.wrapperFooter {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.brands {
+  margin-top: 20px;
+}
