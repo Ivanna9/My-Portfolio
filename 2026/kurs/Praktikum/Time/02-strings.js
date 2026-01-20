@@ -23,14 +23,15 @@ console.log(name.toUpperCase());
 // console.log(array.push("awd"));
 // console.log(array.unshift("awd"));
 // console.log(array);
+//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+// const myArr = ["Danil", 1, "Max", 65, "Ira", 29, 32, 16, "Kathy", 71, "Fedia"];
+// myArr.sort();
+// console.log(myArr);
 
-const myArr = ["Danil", 1, "Max", 65, "Ira", 29, 32, 16, "Kathy", 71, "Fedia"];
-myArr.sort();
-console.log(myArr);
-
-console.log(myArr.slice(6));
-console.log(myArr.slice(0, 6));
-// const newArr = [],
+// console.log(myArr.slice(6));
+// console.log(myArr.slice(0, 6));
+// // const newArr = [],
+/////,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 //   result = [],
 //   length = 6;
 // for (let x = 0; x <= 11; x++) newArr.push(x);
@@ -51,3 +52,34 @@ console.log(myArr.slice(0, 6));
 //   }
 // }
 // return (oldArr += myArr);
+// ,,,,,,,,,,,,,,,,,,,,,
+const info = ["Danil", 1, "Max", 65, "Ira", 29, 32, 16, "Kathy", 71, "Fedia"];
+const copy = [];
+const people = [];
+
+info.forEach(function (info) {
+  if (info >= 0) {
+    copy.push(info);
+    return true;
+  }
+  people.push(info);
+});
+console.log("Array is origin:", info);
+console.log("Array of people:", people);
+console.log("Array of number:", copy);
+
+//.......................
+const array = ["Tom", "Kostya", "Vlad", "Petro", "Slava", "Irina"];
+// let result = arr.find(function (item, index, array) {});
+let lengths = ["Bilbo", "Gandalf", "Nazgul"].map((item) => item.length);
+
+//.......................
+
+// arr.forEach(function callback(currentValue, index, array) {
+//     //your iterator
+// }[, thisArg]);
+// ,,,,,,,,,,,,,,,,,,,,,,,,
+
+// Давай от тобі задача, зроби масив рядків якихось імен, потім пройдися по ньому і добав спереді і зкінця по 3 символи _
+// Не вкінець і початок масива, а до кожного рядка в середині масива
+// Також почитай про map, filter, reduce
