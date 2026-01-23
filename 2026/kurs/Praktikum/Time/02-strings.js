@@ -55,17 +55,17 @@ function getAge() {
 // ,,,,,,,,,,,,,,,,,,,,,старе и почти правильне - пошук по типам
 const info = ["Danil", 1, "Max", 65, "Ira", 29, 32, 16, "Kathy", 71, "Fedia"];
 const copy = [];
-const people = [];
+const peoplea = [];
 
 info.forEach(function (info) {
   if (info >= 0) {
     copy.push(info);
     return true;
   }
-  people.push(info);
+  peoplea.push(info);
 });
 console.log("Array is origin:", info);
-console.log("Array of people:", people);
+console.log("Array of people:", peoplea);
 console.log("Array of number:", copy);
 // ... з типом данних , що зверху
 const info1 = ["Danil", 1, "Max", 65, "Ira", 29, 32, 16, "Kathy", 71, "Fedia"];
@@ -133,3 +133,99 @@ function proba() {
   }
   console.log(str);
 }
+//6
+let allMan;
+allMan = [];
+const allWom = [];
+const oldArr = [];
+const alt27 = [];
+const sortI = [];
+const people = [
+  {
+    id: 1,
+    name: "Олексій",
+    age: 28,
+    gender: "чоловік",
+  },
+  {
+    id: 2,
+    name: "Марія",
+    age: 24,
+    gender: "жінка",
+  },
+  {
+    id: 3,
+    name: "Іван",
+    age: 32,
+    gender: "чоловік",
+  },
+  {
+    id: 4,
+    name: "Анна",
+    age: 27,
+    gender: "жінка",
+  },
+  {
+    id: 5,
+    name: "Дмитро",
+    age: 30,
+    gender: "чоловік",
+  },
+];
+
+// people.forEach(function (human) {
+//   if (human.gender === "чоловік") {
+//     allMan.push(human);
+//   }
+//   if (human.gender === "жінка") {
+//     allWom.push(human);
+//   }
+// });
+
+const result = people.filter(function (human) {
+  return human.gender === "чоловік";
+});
+const result1 = people.filter(function (human) {
+  return human.gender === "жінка";
+});
+
+console.log("=== Перша задача ===");
+console.log("Чоловіки:", result);
+console.log("Жінки:", result1);
+
+const ung = [];
+people.forEach(function (human) {
+  if (human.age >= 27) {
+    alt27.push(human);
+  }
+  if (human.age < 27) {
+    ung.push(human);
+  }
+});
+console.log("=== Друга задача ===");
+console.log("Всі кому за 27:", alt27);
+console.log("Залишок:", ung);
+
+people.sort(function (human1, human2) {
+  if (human1.age > human2.age) return 1;
+  if (human1.age == human2.age) return 0;
+  if (human1.age < human2.age) return -1;
+});
+
+console.log("=== Третя задача ===");
+console.log("Сортування по віку:", people);
+
+people.forEach(function (people) {
+  if (name === "і") {
+    sortI.push(people);
+  }
+  oldArr.push(people);
+});
+console.log("=== Четверта задача ===");
+console.log("Усі у кого є і в імї:", sortI);
+console.log("Залишок:", oldArr);
+
+// перша задача відфільтруй чоловіків
+// друга задача, визнач кількість людей яким більше 27
+// третя задача посортуй людей в масиві за віком, від меншого і до більшого
+// четверта задача, відфільруй людей в імені яких є буква "і"
