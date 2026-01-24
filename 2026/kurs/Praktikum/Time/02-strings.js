@@ -139,7 +139,7 @@ allMan = [];
 const allWom = [];
 const oldArr = [];
 const alt27 = [];
-const sortI = [];
+// const sortI = [];
 const people = [
   {
     id: 1,
@@ -172,7 +172,7 @@ const people = [
     gender: "чоловік",
   },
 ];
-
+// x
 // people.forEach(function (human) {
 //   if (human.gender === "чоловік") {
 //     allMan.push(human);
@@ -214,18 +214,120 @@ people.sort(function (human1, human2) {
 
 console.log("=== Третя задача ===");
 console.log("Сортування по віку:", people);
+// x1
+// const all = [];
 
-people.forEach(function (people) {
-  if (name === "і") {
-    sortI.push(people);
-  }
-  oldArr.push(people);
-});
+// people.forEach(function (human) {
+//   if (human.name == "і") {
+//     sortI.push(human);
+//   }
+//   all.push(human);
+// });
+
+// x2
+
+// let target = "і";
+// let pos = 0;
+// while (true) {
+//   let foundPos = people.name;
+//   foundPos.indexOf(target, pos);
+//   if (foundPos == -1) break;
+
+//   console.log(`Знайдено тут: ${foundPos}`);
+//   pos = foundPos + 1;
+// }
+
+// // x3
+
+// let target1 = "і";
+// console.log(people.includes(target1));
+// // x
+// let pos1 = -1;
+// while ((pos1 = people.indexOf(target1, pos1 + 1)) != -1) {
+//   console.log(pos1);
+// }
+// // x4
+
+const sortedByNameLocale = people.sort((human1, human2) =>
+  human1.name.localeCompare(human2.name, "ua"),
+);
+console.log("=== Сортування по алфавіту ===");
+console.log("sortedByNameAlb:", sortedByNameLocale);
+
+// x5
+
+// const pattern = "н";
+// const matches = people.match(pattern);
+// console.log("match:", matches);
+
+// //x6
+// const result45 = people.filter(function (human) {
+//   return human.name === "І";
+// });
+// console.log("result:", result45);
+// //x7
+// const sortedByName = people.sort(function (human1, human2) {
+//   if (human1.name > human2.name) return 1;
+//   // if (human1.name == human2.name) return 0;
+//   if (human1.name < human2.name) return -1;
+// });
+// console.log("Fk:", sortedByName);
+// //x8
+
+// people.sort((name1, name2) => {
+//   console.log("as:", people);
+//x
+//   if (name1.name < name2.name) return -1;
+//   if (name1.name > name2.name) return 1;
+//   return 0;
+// });
+
+//x9
+
+// people.forEach(function (human) {
+//   let sortI = human.name;
+//   sortI.filter((sortI) => sortI.includes("і"));
+// });
+
+//x10
+// const sortI = people.filter(function (human) {
+//   return human.name === "і";
+// });
 console.log("=== Четверта задача ===");
-console.log("Усі у кого є і в імї:", sortI);
-console.log("Залишок:", oldArr);
+// console.log("Усі у кого є і в імї:", sortI);
+// console.log("Залишок:", all);
 
-// перша задача відфільтруй чоловіків
-// друга задача, визнач кількість людей яким більше 27
-// третя задача посортуй людей в масиві за віком, від меншого і до більшого
+//х11
+// people.forEach(function (human) {
+//   let x11 = human.name;
+//   console.log("Залишок:", x11);
+//   console.log(x11.indexOf("і"));
+// });
+//х12
+// people.forEach(function (human) {
+//   let x11 = human.name;
+//   let pos = 0;
+
+//   console.log("Імя:", x11);
+//   // console.log(x11.indexOf("і"));
+//   if ((x11 = x11.indexOf("і"))) {
+//     return console.log(x11);
+//   } else {
+//     return console.log("Залишок:", all);
+//   }
+// });
+//х13
+people.forEach(function (human) {
+  let x11 = human.name;
+  let pos = 0;
+  let target = "і";
+  while (true) {
+    let foundPos = x11.indexOf(target, pos);
+    if (foundPos == -1) break;
+    console.log(`Позиція букви і в імені: ${foundPos}, в ім'ї:" ${x11}`);
+    pos = foundPos + 1;
+    console.log("Саме імя:", x11);
+  }
+});
+
 // четверта задача, відфільруй людей в імені яких є буква "і"
