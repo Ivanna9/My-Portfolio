@@ -329,5 +329,49 @@ people.forEach(function (human) {
     console.log("Саме імя:", x11);
   }
 });
+//x14
+const filteringByName = people.filter(function (human) {
+  if (human.name.indexOf("i") > 0) {
+    return 1;
+  } else if (human.name.indexOf("i") < 0) {
+    return -1;
+  } else if (human.name.indexOf("i") == 0) {
+    return 0;
+  }
+});
+console.log("Сортування по іменам попитка 14:", filteringByName);
 
-// четверта задача, відфільруй людей в імені яких є буква "і"
+//x15
+const filterName = [];
+const filterByName = people.sort(function (human) {
+  if (human.name.indexOf("i") > 0) {
+    filterByName.push(human);
+    return 1;
+  } else {
+    filterName.push(human);
+    return 0;
+  }
+});
+console.log("Сортування по іменам попитка 15:", filterByName);
+console.log("Сортування по іменам попитка 15:", filterName);
+
+//x16
+const filterName1 = [];
+const filterByName1 = people.sort(function (human) {
+  if (human.name.indexOf("i") > 0) {
+    filterByName1.push(human);
+    return 1;
+  } else if (human.name.indexOf("i") == 0) {
+    filterName1.push(human);
+    return 0;
+  } else if (human.name.indexOf("i") < 0) {
+    filterName1.push(human);
+    return -1;
+  }
+});
+console.log("Сортування по іменам попитка 16:", filterByName1);
+console.log("Сортування по іменам попитка 16:", filterName1);
+
+// // четверта задача, відфільруй людей в імені яких є буква "і"
+// If(human.name.indexOf("i")>0) - і якщо там є ця літера то покаже індекс більше 0,
+//  отже там ця літера є, а якщо буде -1, що менше 0 то там цієї літери немає
