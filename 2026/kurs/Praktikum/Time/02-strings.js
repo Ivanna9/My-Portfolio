@@ -343,13 +343,13 @@ console.log("Сортування по іменам попитка 14:", filteri
 
 //x15
 const filterName = [];
-const filterByName = people.sort(function (human) {
+const filterByName = people.filter(function (human) {
   if (human.name.indexOf("i") > 0) {
     filterByName.push(human);
     return 1;
   } else {
     filterName.push(human);
-    return 0;
+    return -1;
   }
 });
 console.log("Сортування по іменам попитка 15:", filterByName);
@@ -357,7 +357,7 @@ console.log("Сортування по іменам попитка 15:", filterN
 
 //x16
 const filterName1 = [];
-const filterByName1 = people.sort(function (human) {
+const filterByName1 = people.filter(function (human) {
   if (human.name.indexOf("i") > 0) {
     filterByName1.push(human);
     return 1;
@@ -372,6 +372,45 @@ const filterByName1 = people.sort(function (human) {
 console.log("Сортування по іменам попитка 16:", filterByName1);
 console.log("Сортування по іменам попитка 16:", filterName1);
 
+//x17
+const targetI = ["і"];
+const names = Object.values(people)
+  .filter((name) => targetI.includes(name))
+  .reduce((obj, name) => {
+    obj[name] = people[name];
+    // console.log(obj);
+    return obj;
+  }, {});
+
+console.log("Сортування по іменам попитка 17:", names);
+
+//x18
+const targetIName = ["і"];
+console.log(people);
+const filteredUsers = Object.values(people).reduce((obj, value) => {
+  if (targetIName.includes(value)) {
+    obj[value] = people[value];
+  }
+  return obj;
+}, {});
+console.log("Сортування по іменам попитка 18:", filteredUsers);
+
+//x19
+// function filterItems(arr, query) {
+//   return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
+// }
+// console.log(filterItems(people, "i"));
+// console.log(filterItems(people, "a"));
+
+// Source - https://stackoverflow.com/a
+// Posted by canon, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-01-25, License - CC BY-SA 4.0
+//x20
+Object.values(people).forEach((name) => {
+  if (!people[name] == "І") delete people[name];
+});
+
+console.log(people);
 // // четверта задача, відфільруй людей в імені яких є буква "і"
 // If(human.name.indexOf("i")>0) - і якщо там є ця літера то покаже індекс більше 0,
 //  отже там ця літера є, а якщо буде -1, що менше 0 то там цієї літери немає
