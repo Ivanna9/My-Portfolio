@@ -183,6 +183,8 @@ const people = [
 // });
 
 const result = people.filter(function (human) {
+  console.log("Human:", human);
+  console.log("Human is a man:", human.gender === "чоловік");
   return human.gender === "чоловік";
 });
 const result1 = people.filter(function (human) {
@@ -401,16 +403,22 @@ console.log("Сортування по іменам попитка 18:", filtere
 // }
 // console.log(filterItems(people, "i"));
 // console.log(filterItems(people, "a"));
-
-// Source - https://stackoverflow.com/a
-// Posted by canon, modified by community. See post 'Timeline' for change history
-// Retrieved 2026-01-25, License - CC BY-SA 4.0
 //x20
 Object.values(people).forEach((name) => {
   if (!people[name] == "І") delete people[name];
 });
-
 console.log(people);
-// // четверта задача, відфільруй людей в імені яких є буква "і"
-// If(human.name.indexOf("i")>0) - і якщо там є ця літера то покаже індекс більше 0,
-//  отже там ця літера є, а якщо буде -1, що менше 0 то там цієї літери немає
+
+//x21 - рішення сама
+const filterByNameI = people.filter(function (human) {
+  if (human.name.indexOf("і") > 0) {
+    return 1;
+  }
+});
+console.log("Сортування по іменам попитка 21:", filterByNameI);
+
+//x22 рішення - помощь
+const filteringByName1 = people.filter(function (human) {
+  return human.name.indexOf("і") > 0;
+});
+console.log("Сортування по іменам попитка 22:", filteringByName1);
