@@ -1,0 +1,192 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "ubuntu/jammy64"
+
+  config.vm.hostname = "vm-07.da-sql.nuft.edu.ua"
+  config.vm.define "vm-07.da-sql.nuft.edu.ua"
+  config.vm.provider "virtualbox" do |v|
+    v.name = "vm-07.da-sql.nuft.edu.ua"
+  end
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.1.1"
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
+  config.vm.network "forwarded_port", guest: 8081, host: 8081, host_ip: "127.0.1.1"
+  config.vm.network "forwarded_port", guest: 8082, host: 8082, host_ip: "127.0.1.1"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Disable the default share of the current code directory. Doing this
+  # provides improved isolation between the vagrant box and your host
+  # by making sure your Vagrantfile isn't accessable to the vagrant box.
+  # If you use this you may want to enable additional shared subfolders as
+  # shown above.
+  # config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+    vb.memory = "20480"
+  end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision "shell", inline: <<-SHELL
+    # ========
+    # Setup OS
+    # ========
+    timedatectl list-timezones | grep Kyiv
+    timedatectl set-timezone Europe/Kyiv
+    sed -i 's/#DNS=/DNS=8.8.8.8/g' /etc/systemd/resolved.conf
+    sed -i 's/#FallbackDNS=/FallbackDNS=8.8.4.4/g' /etc/systemd/resolved.conf
+    systemctl restart systemd-resolved
+
+    # =========================
+    # Install required software
+    # =========================
+    apt update
+    apt install -y mariadb-server 
+    apt install -y apache2 wget unzip 
+    apt install -y php php-zip php-json php-mbstring php-mysql
+    wget -q https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip
+    unzip -q phpMyAdmin-5.2.1-all-languages.zip && rm phpMyAdmin-5.2.1-all-languages.zip
+    mv phpMyAdmin-5.2.1-all-languages /usr/share/phpmyadmin
+    mkdir /usr/share/phpmyadmin/tmp
+    chown -R www-data:www-data /usr/share/phpmyadmin
+
+    # =================
+    # Configure MariaDB
+    # =================
+    sed -i 's/bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+    systemctl restart mariadb
+    mariadb << EOT
+ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password;
+ALTER USER 'root'@'localhost' IDENTIFIED BY '7X4pnluBS6pm';
+CREATE USER 'root'@'%' IDENTIFIED BY '7X4pnluBS6pm';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+EOT
+    tee -a /root/.my.cnf > /dev/null << EOT
+[client]
+user=root
+password=7X4pnluBS6pm
+EOT
+
+    # =================
+    # Configure Apache2
+    # =================
+    echo -n "" > /etc/apache2/sites-available/000-default.conf
+    tee -a /etc/apache2/sites-available/000-default.conf > /dev/null << EOT
+<VirtualHost *:80>
+    DocumentRoot /usr/share/phpmyadmin
+
+    <Directory /usr/share/phpmyadmin>
+        AllowOverride All
+        Require all granted
+
+        php_admin_value upload_max_filesize 1G
+        php_admin_value post_max_size 1G
+        php_admin_value max_execution_time 3600
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+EOT
+    systemctl restart apache2
+
+    # ====================
+    # Configure PhpMyAdmin
+    # ====================
+    tee -a /usr/share/phpmyadmin/config.inc.php > /dev/null << EOT
+<?php
+
+declare(strict_types=1);
+
+\\$cfg['blowfish_secret'] = 'dbf3c0a9855b283aa0129925a26c7a55';
+
+\\$i = 0;
+\\$i++;
+\\$cfg['Servers'][\\$i]['auth_type'] = 'config';
+\\$cfg['Servers'][\\$i]['user'] = 'root';
+\\$cfg['Servers'][\\$i]['host'] = 'localhost';
+\\$cfg['Servers'][\\$i]['password'] = '7X4pnluBS6pm';
+\\$cfg['Servers'][\\$i]['compress'] = false;
+\\$cfg['Servers'][\\$i]['AllowNoPassword'] = false;
+
+\\$cfg['UploadDir'] = '';
+\\$cfg['SaveDir'] = '';
+EOT
+
+    # ==============
+    # Check services
+    # ==============
+    systemctl status mariadb
+    sleep 1
+    systemctl status apache2
+
+    # =============
+    # Init database
+    # =============
+    mysql < /vagrant/gravity_books_db.sql
+  SHELL
+
+  config.vm.provision "shell", run: "always", inline: <<-SHELL
+    # ======
+    # README
+    # ======
+    echo "+-----------+------+-------+--------------+------------------------+"
+    echo "|   Host    | Port | Login |   Password   |       PhpMyAdmin       |"
+    echo "+-----------+------+-------+--------------+------------------------+"
+    echo "| 127.0.1.1 | 3306 | root  | 7X4pnluBS6pm | http://127.0.1.1:8080/ |"
+    echo "+-----------+------+-------+--------------+------------------------+"
+  SHELL
+end
