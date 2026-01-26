@@ -1,92 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="keywords" content="HTML ,теги, метатег, методичка по использованию, система">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Сайт об HTML тегах и как их использовать">
-        <title>Document with practice</title>
-        <link rel="stylesheet" href="/First sites/CSS/style.css">
-     </head>
-    <body>
-        <div class="container">
-            <div class="card  bg-yellow">
-                <h2>Hello world!!!!</h2>
-                <h5> <p>Тренируемся использовать теги</p></h5>
-            </div> 
-            <div class="info">
-                 <img src="https://i.pinimg.com/474x/04/2a/79/042a7994f92a76101b4bfc6ff29028c8.jpg" 
-                            alt="тут моя фотка"
-                            class="avatar"> 
-                <div class="info-text">
-                    <!--<div class="card bg-red"> -->                                              
-                        <h1><strong> Дзюбан Иванна </strong></h1>
-                        <h3><p><em>Я люблю рисовать и познавать что-то новое</em></p></h3>
-                        <h5>Мои социальные сети</h5>             
-                        <a href="" target="_blank">Instagram</a> 
-                        |
-                        <a href="" target="_blank">Telegram</a>                                 
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-pink">
-                <h2>Мои хобби</h2>
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, теги, метатег, методичка" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Сайт про HTML теги та як їх використовувати"
+    />
+    <title>Document with practice</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card bg-yellow">
+        <h2>Hello world!!!!</h2>
+        <h5>Тренуємося використовувати теги</h5>
+      </div>
 
-                <ol class="list">
-                    <li>Рисование</li>
-                    <li>Плавание</li>
-                    <li>Спорт</li>
-                    <li>Путешествие</li>
-                </ol>
-            </div>
-            <div class="card bg-orange">
-                <h2>Моя методичка</h2>
-                <a href="Directory.html">Посмотреть методичку</a>
-            </div>
+      <div class="info">
+        <img
+          src="https://i.pinimg.com/474x/04/2a/79/042a7994f92a76101b4bfc6ff29028c8.jpg"
+          alt="Моє фото"
+          class="avatar"
+        />
+        <div class="info-text">
+          <h1>Іванна</h1>
+          <h3><em>Я люблю малювати</em></h3>
+          <h5>Мої соціальні мережі</h5>
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          |
+          <a href="https://t.me" target="_blank">Telegram</a>
+        </div>
+      </div>
 
-            <div class="card bg-blue">
-                <h2>Обучение</h2>
-                <table class="table">
-                    <tr>
-                        <th>Место</th>
-                        <th>Факультет</th>
-                        <th>Годы обучения</th>
-                    </tr>
-                    <tr>
-                        <td>Нухт</td>
-                        <td>АКС</td>
-                        <td>2019-2023</td>
-                    </tr>
-                </table>
+      <div class="card bg-pink">
+        <h2>Мої хобі</h2>
+        <ol class="list">
+          <li>Малювання</li>
+          <li>Плавання</li>
+          <li>Спорт</li>
+          <li>Подорожі</li>
+        </ol>
+      </div>
+
+      <div class="card bg-orange">
+        <h2>Моя методичка</h2>
+        <a href="Directory.html">Подивитися методичку</a>
+      </div>
+
+      <div class="card bg-blue">
+        <h2>Навчання</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Місце</th>
+              <th>Факультет</th>
+              <th>Роки навчання</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>НУХТ</td>
+              <td>АКС</td>
+              <td>2019-2023</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="contact">
+        <h2>Зв'язок</h2>
+        <form action="/">
+          <div class="row">
+            <div class="form-group">
+              <label for="name">Ваше ім'я:</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Почніть писати ім'я..."
+              />
             </div>
-            <div class="contact">
-               <!-- <div class="card bg-green">-->
-                    <h2>Связь</h2>
-                    <form action="/"> 
-                        <div class="row">
-                            <div class="form-group">
-                                <label for="name">Ваше имя:</label>
-                                <input type="text" id="name"
-                                placeholder="Начните писать ваше имя...">  
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Ваш email:</label>
-                                <input type="email" id="email"
-                                placeholder="Введите ваш email...">
-                            </div>
-                        </div>                        
-                        <div class="form-group">
-                            <label for="text">SMS</label>
-                            <textarea id="text" cols="80" rows="2"></textarea>
-                        </div>                        
-                        <input class="btn" type="submit" value="Связаться!">
-                    </form>
-                </div>
-                
-                <div class="position">
-                    <div class="box"></div>
-                </div>
-            </div> 
-        </div>  
-    </body>
+            <div class="form-group">
+              <label for="email">Ваш email:</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Введіть ваш email..."
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="text">Повідомлення</label>
+            <textarea id="text" cols="80" rows="2"></textarea>
+          </div>
+          <input class="btn" type="submit" value="Зв'язатися!" />
+        </form>
+      </div>
+
+      <div class="position">
+        <div class="box"></div>
+      </div>
+    </div>
+  </body>
 </html>
