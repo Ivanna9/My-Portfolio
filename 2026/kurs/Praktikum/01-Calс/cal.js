@@ -1,30 +1,3 @@
-// let num = 42;
-// let firstName = "Vlad";
-// const isProgrammer = true;
-
-// let carrot = "test";
-// let $ = 7;
-// // alert(firstName);
-// console.log("Test:", num + 10);
-// console.log("Test:", num - 10);
-// console.log("Test:", num * 10);
-// console.log("Test:", num / 10);
-
-// let num2 = num + 10;
-// console.log(num, num2);
-// num = num2 - num;
-// console.log(num, num2);
-// num2 = num2 + 1;
-// console.log(num, num2);
-// let num3 = (num + 10) * 5 + 65 - 32 - 12;
-// console.log(num3);
-// const fullName = firstName + " " + 23;
-// console.log(fullName);
-// console.log("Result:", resultElement);
-
-// console.log(resultElement.textContent);
-// resultElement.textContent = 54;
-
 const resultElement = document.getElementById("result");
 const input1 = document.getElementById("input1");
 const input2 = document.getElementById("input2");
@@ -40,22 +13,6 @@ const nusBtn = document.getElementById("nus");
 const clearBtn = document.getElementById("clear");
 let lastResult = 0;
 let action = "";
-// console.log(input1.value);
-// console.log(input2.value);
-// const sum = Number(input1.value) + Number(input2.value);
-// resultElement.textContent = sum;
-// // console.log(typeof sum);
-//2
-// plusBtn.onclick = function () {
-//   const sum = Number(input1.value) + Number(input2.value);
-//   resultElement.textContent = sum;
-// };
-
-// minusBtn.onclick = function () {
-//   const min = Number(input1.value) - Number(input2.value);
-//   resultElement.textContent = min;
-// };
-
 //3
 
 plusBtn.onclick = function () {
