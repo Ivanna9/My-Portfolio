@@ -1,36 +1,36 @@
-# DA — Менеджмент баз та сховищ данних — Курсова робота
+# DA — Database & Data Warehouse Management — Coursework
 
-Цей проект містить інфраструктуру та скрипти для роботи з набором даних Mubi.
+This project provides the infrastructure and scripts required to work with the **Mubi Dataset**.
 
-## Структура репозиторію
-* `Vagrantfile` — конфігурація віртуальної машини (Ubuntu/MariaDB).
-* `parse_mubi.sql` — SQL-скрипт для обробки та аналізу даних.
-* `.gitignore` — налаштування для виключення технічних файлів `.vagrant` та архівів із Git.
+## Repository Structure
+* `Vagrantfile` — Configuration for the virtual machine (Ubuntu/MariaDB).
+* `parse_mubi.sql` — SQL scripts for data processing and analysis.
+* `.gitignore` — Settings to exclude technical files (`.vagrant`) and large archives from Git.
 
-## 📥 Завантаження бази даних
-Через великий розмір, дамп бази даних розбитий на частини та зберігається на Google Диску. 
-**Посилання на завантаження:** [ https://drive.google.com/file/d/1zxq0-GHYRJFkr_pIxamYP4jZ_ENe14mk/view?usp=sharing ]
+## Database Download
+Due to the large file size, the database dump is split into parts and hosted on Google Drive.
+**Download link:** [Click here to download files](https://drive.google.com/file/d/1zxq0-GHYRJFkr_pIxamYP4jZ_ENe14mk/view?usp=sharing)
 
-Перед початком роботи завантажте всі частини архіву (`05_mubi.sql.tar.gz.aa` — `05_mubi.sql.tar.gz.af`) у корінь цієї папки.
+Before starting, download all archive parts (`05_mubi.sql.tar.gz.aa` through `05_mubi.sql.tar.gz.af`) and place them in the project root folder.
 
-## Як розгорнути проект
+## Deployment Instructions
 
-### 1. Запуск віртуальної машини
-Переконайтеся, що у вас встановлені Vagrant та VirtualBox, і виконайте:
+### 1. Launch the Virtual Machine
+Ensure you have **Vagrant** and **VirtualBox** installed, then run:
 ```shell
 vagrant up
 
-### Стиснення дампу бази даних
+### Compressing the database dump
 ```shell
 tar cvzf - <filename>.sql | split --bytes=90MB - <filename>.sql.tar.gz.
 ```
 
-### Розпаковка архіву з дампом бази даних
+### Unpacking the archive with the database dump
 ```shell
 cat <filename>.sql.tar.gz.* | tar xzvf -
 ```
 
-### Завантаження набору даних в СУБД MariaDB/MySQL (OS: Ubuntu Linux, User: root)
+### Loading a dataset into MariaDB/MySQL DBMS (OS: Ubuntu Linux, User: root)
 ```shell
 mysql <db_name> < <filename>.sql
 ```
