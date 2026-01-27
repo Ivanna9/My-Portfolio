@@ -1,0 +1,28 @@
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    environment:
+      - CLICKHOUSE_USER=vagrant
+      - CLICKHOUSE_PASSWORD=admin123
+      - CLICKHOUSE_DB=certificate
+    volumes:
+      - ./create-database.sql:/docker-entrypoint-initdb.d/create-database.sql
+    ports:
+      - "9000:9000"
+      - "8123:8123"
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - clickhouse
+    restart: unless-stopped
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clickhouse-datasource
+    volumes:
+      - ./provisioning:/etc/grafana/provisioning
+      - ./dashboards:/var/lib/grafana/dashboards
