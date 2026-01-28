@@ -117,13 +117,29 @@ console.log("----------------------------------");
 logger3.keys.apply(person);
 console.log("----------------------------------");
 
-class Person {
+class Human {
+  static isHuman = true;
+  humanGreet() {
+    console.log("greet from human");
+  }
+}
+class Person extends Human {
   constructor(name, surname, age) {
+    super();
     this.name = name ?? "Undefined name";
     this.surname = surname ?? "Undefined surname";
-    ((this.age = age), "Undefined age");
+    this.age = age ?? "Undefined age";
+  }
+
+  sayHello() {
+    console.log("Hello from", this.name);
   }
 }
 
-const newPerson = new Person("Krokodilo", "Bombardillo", 25);
-console.log(newPerson);
+const newPerson1 = new Person("Krokodilo", "Bombardillo", 25);
+const newPerson2 = new Person("Fichukatta", "Harvidillo", 43);
+newPerson1.sayHello();
+console.log("----------------------------------");
+newPerson2.sayHello();
+console.log("----------------------------------");
+console.log(Human.isHuman);
