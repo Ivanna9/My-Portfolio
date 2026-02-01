@@ -10,8 +10,13 @@
 
 const list = document.querySelector("#list");
 const filter = document.querySelector("#filter");
+let USERS = [];
 filter.addEventListener("input", (event) => {
-  console.log("input", event.target.value);
+  const value = event.target.value.toLowerCase();
+  const filteredUsers = USERS.filter((user) => {
+    return user.name.toLowerCase().includes(value);
+  });
+  render(filteredUsers);
 });
 
 async function start() {
@@ -21,6 +26,7 @@ async function start() {
     const resp = await fetch("https://jsonplaceholder.typicode.com/users");
     const data = await resp.json();
     setTimeout(() => {
+      USERS = data;
       render(data);
     }, 2000);
   } catch (err) {
@@ -28,9 +34,14 @@ async function start() {
     list.innerHTML = err.message;
   }
 }
-function render(user = []) {
-  const html = user.map(toHTML).join("");
-  list.innerHTML = html;
+function render(users = []) {
+  if (users.length == 0) {
+    list.style.color = "yellow";
+    list.innerHTML = "No matched users!";
+  } else {
+    const html = users.map(toHTML).join("");
+    list.innerHTML = html;
+  }
 }
 
 function toHTML(user) {
