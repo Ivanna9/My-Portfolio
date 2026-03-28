@@ -1,13 +1,22 @@
-﻿Console.WriteLine("Hello, World again!");
-
-int i = 1;
+﻿int i = 1;
 string path = "test.txt";
-string[] lines = { "Jova", "Eva", "Pawol","blA" ,"adabra" };
-File.WriteAllLines(path, lines);
-using (StreamReader reader = new StreamReader(path))
+using (StreamWriter writer = new StreamWriter(path, append: true))
 {
-    string? line;
-    while ((line = reader.ReadLine()) != null)
+    writer.WriteLine("start");
+    writer.WriteLine("start");
+    writer.WriteLine("start");
+}
+using (StreamWriter writerEnd = new StreamWriter(path, append: false))
+{
+    writerEnd.WriteLine("end");
+    writerEnd.WriteLine("end");
+}
+
+string? line = "";
+using (StreamReader all = new StreamReader(path))
+{
+
+    while ((line = all.ReadLine()) != null)
     {
         Console.WriteLine($"{i++}. {line}");
     }
