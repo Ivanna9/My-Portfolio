@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e617ff81853d624daddeb9cf8eed1a607a4f3253")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab2a90968cec0645108aabe65af386dcedd1f5fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
