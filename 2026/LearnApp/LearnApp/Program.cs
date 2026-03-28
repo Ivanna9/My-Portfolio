@@ -1,23 +1,25 @@
-﻿int i = 1;
-string path = "test.txt";
-using (StreamWriter writer = new StreamWriter(path, append: true))
+﻿using System.Text.Json;
+User user = new User
 {
-    writer.WriteLine("start");
-    writer.WriteLine("start");
-    writer.WriteLine("start");
-}
-using (StreamWriter writerEnd = new StreamWriter(path, append: false))
-{
-    writerEnd.WriteLine("end");
-    writerEnd.WriteLine("end");
-}
+    Name = "John Doe",
+    City = "New York",
+    Age = 30
+};
 
-string? line = "";
-using (StreamReader all = new StreamReader(path))
-{
+string json = JsonSerializer.Serialize(user);
+Console.WriteLine(json);
 
-    while ((line = all.ReadLine()) != null)
-    {
-        Console.WriteLine($"{i++}. {line}");
-    }
+File.WriteAllText("user.json", json);
+string fromFile = File.ReadAllText("user.json");
+
+User? loaded = JsonSerializer.Deserialize<User>(fromFile);
+Console.WriteLine($"Name: {loaded.Name}, City: {loaded.City}, Age: {loaded.Age}");
+Console.WriteLine($"{loaded.Name} - {loaded.City} - {loaded.Age}");
+
+class User
+{
+    public string? Name { get; set; }
+    public string? City { get; set; }
+    public int Age { get; set; }
+
 }
