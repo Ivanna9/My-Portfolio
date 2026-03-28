@@ -1,20 +1,22 @@
 ﻿using System.Text.Json;
-User user = new User
-{
-    Name = "John Doe",
-    City = "New York",
-    Age = 30
+List<User> users = new List<User>
+{ new User{Name="Falio Doe", City = "New York", Age=26},
+    new User{Name="Jane Smith", City = "los Angeles", Age=45},
+    new User{Name="John Liff", City = "Paris", Age=35},
 };
 
-string json = JsonSerializer.Serialize(user);
+string json = JsonSerializer.Serialize(users);
 Console.WriteLine(json);
 
-File.WriteAllText("user.json", json);
-string fromFile = File.ReadAllText("user.json");
+File.WriteAllText("users.json", json);
+string fromFile = File.ReadAllText("users.json");
 
-User? loaded = JsonSerializer.Deserialize<User>(fromFile);
-Console.WriteLine($"Name: {loaded.Name}, City: {loaded.City}, Age: {loaded.Age}");
-Console.WriteLine($"{loaded.Name} - {loaded.City} - {loaded.Age}");
+List<User>? loaded = JsonSerializer.Deserialize<List<User>>(fromFile);
+foreach(User user in loaded)
+{
+Console.WriteLine($"{user.Name} - {user.City} - {user.Age}");
+}
+
 
 class User
 {
