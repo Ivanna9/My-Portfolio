@@ -3,9 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\MyPortfolio\\2026\\LearnApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\MyPortfolio\\2026\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FAB43020-D06A-FF07-958E-8E80B6913F1F}|LearnApp\\LearnApp.csproj|c:\\users\\admin\\myportfolio\\2026\\learnapp\\learnapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAB43020-D06A-FF07-958E-8E80B6913F1F}|LearnApp\\LearnApp.csproj|solutionrelative:learnapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -42,19 +39,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\Admin\\MyPortfolio\\2026\\.gitignore",
-              "RelativeDocumentMoniker": "..\\.gitignore",
-              "ToolTip": "C:\\Users\\Admin\\MyPortfolio\\2026\\.gitignore",
-              "RelativeToolTip": "..\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-03-28T16:17:01.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\MyPortfolio\\2026\\LearnApp\\LearnApp\\Program.cs",
               "RelativeDocumentMoniker": "LearnApp\\Program.cs",
