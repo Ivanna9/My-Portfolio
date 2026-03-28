@@ -2,10 +2,13 @@
 
 int i = 1;
 string path = "test.txt";
-string[] lines = { "Jova", "Eva", "Pawol" };
+string[] lines = { "Jova", "Eva", "Pawol","blA" ,"adabra" };
 File.WriteAllLines(path, lines);
-string[] fromFile = File.ReadAllLines(path);
-foreach (string line in fromFile)
+using (StreamReader reader = new StreamReader(path))
 {
-    Console.WriteLine($"{i++}. {line}");
+    string? line;
+    while ((line = reader.ReadLine()) != null)
+    {
+        Console.WriteLine($"{i++}. {line}");
+    }
 }
