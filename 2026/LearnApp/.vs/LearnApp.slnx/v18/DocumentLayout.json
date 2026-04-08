@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\MyPortfolio\\2026\\LearnApp\\",
+  "WorkspaceRootPath": "C:\\Users\\idzub\\source\\repos\\Ivanna9\\My-Portfolio\\2026\\LearnApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FAB43020-D06A-FF07-958E-8E80B6913F1F}|LearnApp\\LearnApp.csproj|c:\\users\\admin\\myportfolio\\2026\\learnapp\\learnapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FAB43020-D06A-FF07-958E-8E80B6913F1F}|LearnApp\\LearnApp.csproj|c:\\users\\idzub\\source\\repos\\ivanna9\\my-portfolio\\2026\\learnapp\\learnapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAB43020-D06A-FF07-958E-8E80B6913F1F}|LearnApp\\LearnApp.csproj|solutionrelative:learnapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,8 +14,12 @@
       "DocumentGroups": [
         {
           "DockedHeight": 302,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:5:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
@@ -40,9 +44,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\MyPortfolio\\2026\\LearnApp\\LearnApp\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\idzub\\source\\repos\\Ivanna9\\My-Portfolio\\2026\\LearnApp\\LearnApp\\Program.cs",
               "RelativeDocumentMoniker": "LearnApp\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\MyPortfolio\\2026\\LearnApp\\LearnApp\\Program.cs",
+              "ToolTip": "C:\\Users\\idzub\\source\\repos\\Ivanna9\\My-Portfolio\\2026\\LearnApp\\LearnApp\\Program.cs",
               "RelativeToolTip": "LearnApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
