@@ -7,11 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="§06.cs" />
-    <Compile Remove="§07.cs" />
-    <Compile Remove="§08.cs" />
-    <Compile Remove="§09.cs" />
-  </ItemGroup>
-
 </Project>
